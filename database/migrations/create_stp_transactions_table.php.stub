@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateSTPTransactionsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        Schema::create('stp_transactions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('tracking_key');
+            $table->string('sender_name');
+            $table->string('sender_account');
+            $table->string('recipient_name');
+            $table->string('recipient_account');
+            $table->string('company', 15);
+            $table->decimal('amount', 19, 2)->default('0.00');
+            $table->unsignedMediumInteger('reference_number');
+            $table->json('details')->nullable();
+            $table->dateTime('operation_date');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        Schema::dropIfExists('stp_transactions');
+    }
+}
