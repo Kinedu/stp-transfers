@@ -16,8 +16,10 @@ class CreateSTPTransactionsTable extends Migration
             $table->string('tracking_key');
             $table->string('sender_name');
             $table->string('sender_account');
+            $table->string('sender_rfc');
             $table->string('recipient_name');
             $table->string('recipient_account');
+            $table->string('recipient_rfc');
             $table->string('company', 15);
             $table->decimal('amount', 19, 2)->default('0.00');
             $table->unsignedMediumInteger('reference_number');
