@@ -14,9 +14,9 @@ class STPTransfersServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        if (! class_exists('CreateSchoolSTPDetailsTable')) {
+        if (! class_exists('CreateSchoolEFTAccountTable')) {
             $this->publishes([
-                __DIR__.'/../database/migrations/create_school_stp_details_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_school_stp_details_table.php'),
+                __DIR__.'/../database/migrations/create_school_eft_account_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_school_eft_account_table.php'),
             ], 'migrations');
         }
 
