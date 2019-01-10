@@ -1,6 +1,6 @@
 <?php
 
-namespace Kinedu\STPTransfers\HasElectronicTransferAccount;
+namespace Kinedu\STPTransfers\SchoolHasElectronicTransferAccount;
 
 use Kinedu\STPTransfers\Models\SchoolEFTAccount;
 
