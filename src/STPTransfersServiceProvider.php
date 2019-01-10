@@ -8,6 +8,12 @@ class STPTransfersServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        if (! class_exists('CreateEFTTypesTable')) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_eft_types_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_eft_types_table.php'),
+            ], 'migrations');
+        }
+
         if (! class_exists('CreateStudentEFTAccountsTable')) {
             $this->publishes([
                 __DIR__.'/../database/migrations/create_student_eft_accounts_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_student_eft_accounts_table.php'),
