@@ -4,28 +4,34 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSTPTransactionsTable extends Migration
+class CreateEFTTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('stp_transactions', function (Blueprint $table) {
+        Schema::create('eft_transactions', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('eft_type_id');
             $table->string('tracking_key');
             $table->string('sender_name');
             $table->string('sender_account');
-            $table->string('sender_rfc');
+            $table->string('sender_taxpayer_id');
             $table->string('recipient_name');
             $table->string('recipient_account');
-            $table->string('recipient_rfc');
+            $table->string('recipient_taxpayer_id');
             $table->string('company', 15);
             $table->decimal('amount', 19, 2)->default('0.00');
             $table->unsignedMediumInteger('reference_number');
             $table->json('details')->nullable();
             $table->dateTime('operation_date');
             $table->timestamps();
+
+            $table->foreign('eft_type_id')
+                  ->references('id')->on('eft_types')
+                  ->onUpdate('no action')
+                  ->onDelete('cascade');
         });
     }
 
@@ -34,6 +40,6 @@ class CreateSTPTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stp_transactions');
+        Schema::dropIfExists('eft_transactions');
     }
 }
