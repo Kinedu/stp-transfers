@@ -9,7 +9,7 @@ abstract class JsonColumn
      *
      * @var array
      */
-    protected $settings = [];
+    protected $jsonAttributes = [];
 
     /**
      * The list of fillable properties.

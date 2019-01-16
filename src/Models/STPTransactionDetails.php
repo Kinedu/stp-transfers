@@ -2,11 +2,8 @@
 
 namespace Kinedu\STPTransfers\Models;
 
-class STPTransactionDetails extends JsonColumn implements JsonColumnInterface
+class STPTransactionDetails extends JsonColumn
 {
-    /** @var array */
-    protected $details;
-
     /** @var \Kinedu\STPTransfers\Models\STPTransaction */
     protected $transaction;
 
@@ -24,9 +21,9 @@ class STPTransactionDetails extends JsonColumn implements JsonColumnInterface
         'recipient_bank_id',
     ];
 
-    public function __construct(array $details, STPTransaction $transaction)
+    public function __construct(array $jsonAttributes, STPTransaction $transaction)
     {
-        $this->details = $details;
+        $this->jsonAttributes = $jsonAttributes;
         $this->transaction = $transaction;
     }
 
@@ -38,7 +35,7 @@ class STPTransactionDetails extends JsonColumn implements JsonColumnInterface
     protected function persist()
     {
         return $this->transaction->update([
-            'details' => $this->details,
+            'details' => $this->jsonAttributes,
         ]);
     }
 }

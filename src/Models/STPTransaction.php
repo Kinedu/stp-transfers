@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class STPTransaction extends Model
 {
+    protected $table = 'eft_transactions';
+
     protected $guarded = [];
 
     /**
@@ -26,14 +28,14 @@ class STPTransaction extends Model
         'operation_date',
     ];
 
-    public function details($key = null)
+    public function transactionDetails($key = null)
     {
-        $details = $this->transactionDetails();
+        $details = $this->STPTransactionDetails();
 
         return $key ? $details->get($key) : $details;
     }
 
-    public function transactionDetails()
+    public function STPTransactionDetails()
     {
         return new STPTransactionDetails($this->details ?? [], $this);
     }
