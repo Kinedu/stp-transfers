@@ -19,11 +19,7 @@ class STPTransactionDetails extends JsonColumn implements JsonColumnInterface
         'payment_description',
         'sender_payment_type',
         'recipient_payment_type',
-        'registration_order',
-        'payment_order',
         'payment_type',
-        'signature',
-        'folio_origin',
         'sender_bank_id',
         'recipient_bank_id',
     ];
