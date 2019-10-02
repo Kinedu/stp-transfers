@@ -6,9 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class STPTransaction extends Model
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'eft_transactions';
 
-    protected $guarded = [];
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        //
+    ];
 
     /**
      * The attributes that should be cast to native types.

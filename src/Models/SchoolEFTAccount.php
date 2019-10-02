@@ -13,7 +13,14 @@ class SchoolEFTAccount extends Model
      */
     protected $table = 'school_eft_accounts';
 
-    protected $guarded = [];
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        //
+    ];
 
     /**
      * The attributes that should be mutated to dates.
