@@ -13,5 +13,12 @@ class StudentEFTAccount extends Model
      */
     protected $table = 'student_eft_accounts';
 
-    protected $guarded = [];
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        //
+    ];
 }
