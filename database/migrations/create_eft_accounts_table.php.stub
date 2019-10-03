@@ -4,18 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchoolEFTAccountsTable extends Migration
+class CreateEFTAccountsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('school_eft_accounts', function (Blueprint $table) {
+        Schema::create('eft_accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('school_id');
-            $table->string('bank_key')->nullable();
-            $table->dateTime('account_requested_at');
+            $table->morphs('accountable');
+            $table->string('eft_key');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ class CreateSchoolEFTAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('school_eft_accounts');
+        Schema::dropIfExists('student_eft_accounts');
     }
 }

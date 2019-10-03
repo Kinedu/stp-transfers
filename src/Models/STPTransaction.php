@@ -40,15 +40,15 @@ class STPTransaction extends Model
         'operation_date',
     ];
 
+    public function STPTransactionDetails()
+    {
+        return new STPTransactionDetails($this->details ?? [], $this);
+    }
+
     public function transactionDetails($key = null)
     {
         $details = $this->STPTransactionDetails();
 
         return $key ? $details->get($key) : $details;
-    }
-
-    public function STPTransactionDetails()
-    {
-        return new STPTransactionDetails($this->details ?? [], $this);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kinedu\STPTransfers\StudentHasElectronicTransferAccount;
+namespace Kinedu\STPTransfers\Interfaces;
 
 interface HasElectronicTransferAccount
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Kinedu\STPTransfers\SchoolHasElectronicTransferAccount;
+namespace Kinedu\STPTransfers\Interfaces;
 
-interface HasElectronicTransferAccount
+interface SupportElectronicTransfers
 {
     /**
      * Set the EFT account relationship.

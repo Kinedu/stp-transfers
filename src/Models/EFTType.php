@@ -13,5 +13,12 @@ class EFTType extends Model
      */
     protected $table = 'eft_types';
 
-    protected $guarded = [];
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        //
+    ];
 }
