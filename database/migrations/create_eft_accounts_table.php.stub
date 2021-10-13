@@ -24,6 +24,6 @@ class CreateEFTAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_eft_accounts');
+        Schema::dropIfExists('eft_accounts');
     }
 }

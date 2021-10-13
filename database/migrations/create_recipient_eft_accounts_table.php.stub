@@ -25,6 +25,6 @@ class CreateRecipientEFTAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('school_eft_accounts');
+        Schema::dropIfExists('recipient_eft_accounts');
     }
 }
