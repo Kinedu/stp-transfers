@@ -2,6 +2,8 @@
 
 namespace Kinedu\STPTransfers\Models;
 
+use Illuminate\Support\Arr;
+
 abstract class JsonColumn
 {
     /**
@@ -36,7 +38,7 @@ abstract class JsonColumn
      */
     public function get($key)
     {
-        return array_get($this->jsonAttributes, $key);
+        return Arr::get($this->jsonAttributes, $key);
     }
 
     /**
@@ -75,7 +77,7 @@ abstract class JsonColumn
 
     public function forget($key)
     {
-        array_forget($this->jsonAttributes, $key);
+        Arr::forget($this->jsonAttributes, $key);
 
         return $this->persist();
     }
@@ -102,13 +104,13 @@ abstract class JsonColumn
         // Strip out any null properties
         foreach ($attributes as $key => $value) {
             if (is_null($value)) {
-                array_forget($attributes, $key);
+                Arr::forget($attributes, $key);
             }
         }
 
         $this->jsonAttributes = array_merge(
             $this->jsonAttributes,
-            array_only($attributes, $this->allowed)
+            Arr::only($attributes, $this->allowed)
         );
 
         return $this->persist();
