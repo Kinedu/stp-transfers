@@ -19,6 +19,7 @@ class STPTransactionDetails extends JsonColumn
         'payment_type',
         'sender_bank_id',
         'recipient_bank_id',
+        'folio_codi',
     ];
 
     public function __construct(array $jsonAttributes, STPTransaction $transaction)
